@@ -13,6 +13,9 @@ server.use(middlewares);
 
 server.get("/", (_, res) =>
   res.send(`<!DOCTYPE html>
+            <style>
+            html,body{width: 100vw; height: 100vh; }
+            </style>
             <html>
               <head></head>
               <body>
