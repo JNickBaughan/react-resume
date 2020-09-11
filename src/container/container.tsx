@@ -1,8 +1,15 @@
 import React from "react";
-import Header from "../components/header/header";
+import Header from "../components/header";
+import Bio from "../components/bio";
 
+//todo: style bio and setup container layout
 export const Container = () => {
-  return <Header />;
+  return (
+    <div>
+      <Header />
+      <Bio />
+    </div>
+  );
 };
 
 export default Container;

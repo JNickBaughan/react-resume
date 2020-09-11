@@ -52,10 +52,12 @@ const Photo = styled.div`
 
 export const Header = () => {
   return (
-    <HeaderContainer>
-      <Photo />
-      <Title>[ J. Nick Baughan ]</Title>
-    </HeaderContainer>
+    <div>
+      <HeaderContainer>
+        <Photo />
+        <Title>[ J. Nick Baughan ]</Title>
+      </HeaderContainer>
+    </div>
   );
 };
 
