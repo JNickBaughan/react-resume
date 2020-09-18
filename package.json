@@ -7,7 +7,9 @@
     "build-dev": "npm run build-frontend & npm run build-server",
     "build-frontend": "webpack --config webpack.config.js & node build-scripts/copy-content.js",
     "build-server": "webpack --config webpack.server.config.js",
-    "start-dev": "node ./dist/server.bundle.js"
+    "start-dev": "node ./dist/server.bundle.js",
+    "run-start": "npm run build-dev & npm run start-dev",
+    "docker": "docker-compose up --build"
   },
   "author": "J Nick Baughan",
   "license": "MIT",

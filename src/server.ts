@@ -14,12 +14,11 @@ server.use(middlewares);
 server.get("/", (_, res) =>
   res.send(`<!DOCTYPE html>
             <style>
-            html,body{width: 100vw; height: 100vh; }
+            html,body{ width: 99vw; height: 96vh; }
             </style>
             <html>
               <head></head>
               <body>
-                <div id="root" />
                 <script src="/bundle.js"></script>
               </body>
             </html>

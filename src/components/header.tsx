@@ -21,7 +21,7 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   z-index: 1000;
-  background: #31595e;
+  background: #352d31;
   border-radius: 5px;
   height: 60px;
   margin-right: 2%;
