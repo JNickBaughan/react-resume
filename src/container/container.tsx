@@ -4,7 +4,9 @@ import styled from "styled-components";
 import Header from "../components/header";
 import Bio from "../components/bio";
 import Main from "../components/main";
-import Section from "../components/section";
+import Section from "../components/sections/section";
+import SkillsSection from "../components/sections/skills";
+import PortfolioSection from "../components/sections/portfolio";
 
 import { Data } from "../data";
 
@@ -66,8 +68,8 @@ export const Container = ({ data }: { data: Data }) => {
       </BioWrapper>
       <MainWrapper>
         <Main ref={scrollRef}>
-          <Section ref={refOne} />
-          <Section ref={refTwo} />
+          <SkillsSection ref={refOne} />
+          <PortfolioSection ref={refTwo} />
           <Section ref={refThree} />
           <Section ref={refFour} />
           <Section ref={refFive} />
