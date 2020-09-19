@@ -14,16 +14,23 @@ type BioProps = {
   blurb: string;
 };
 
+const StyledBio = styled.div`
+  margin: 135px 25px;
+  padding: 5px;
+  font-family: proxima-nova, Helvetica, Arial, sans-serif;
+  border-top: solid;
+`;
+
 export const Bio = ({ intro, blurb }: BioProps) => {
   return (
-    <div>
-      <h3>{intro}</h3>
+    <StyledBio>
+      <h4>{intro}</h4>
       <span>{blurb}</span>
 
-      <FontAwesomeIcon icon={faEnvelope} />
+      {/* <FontAwesomeIcon icon={faEnvelope} />
       <FontAwesomeIcon icon={faCodeBranch} />
-      <FontAwesomeIcon icon={faLink} />
-    </div>
+      <FontAwesomeIcon icon={faLink} /> */}
+    </StyledBio>
   );
 };
 

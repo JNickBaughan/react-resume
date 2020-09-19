@@ -34,12 +34,16 @@ const HeaderContainer = styled.header`
   position: fixed;
   width: 95%;
   top: 20px;
+  display: grid;
+  grid-template-columns: 1% 25% 45% 30%;
+  grid-template-areas: "photo title blank links";
 `;
 
 const Title = styled.h2`
   font-family: proxima-nova, Helvetica, Arial, sans-serif;
   color: #fff;
   padding: 0 0 10px 174px;
+  grid-area: title;
 `;
 
 const Photo = styled.div`
@@ -53,6 +57,22 @@ const Photo = styled.div`
   position: absolute;
   top: 8px;
   left: 10px;
+  grid-area: photo;
+`;
+
+const LinkContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  grid-area: links;
+`;
+
+const Link = styled.div`
+  font-family: proxima-nova, Helvetica, Arial, sans-serif;
+  margin-top: 10px;
+  padding: 10px;
+  color: #fff;
+  font-size: large;
+  font-weight: bold;
 `;
 
 export const Header = ({ photoUrl, title }: HeaderProps) => {
@@ -61,6 +81,14 @@ export const Header = ({ photoUrl, title }: HeaderProps) => {
       <HeaderContainer>
         <Photo photoUrl={photoUrl} />
         <Title>{title}</Title>
+        <LinkContainer>
+          <Link>
+            <a>Skill Set</a>
+          </Link>
+          <Link>Portfolio</Link>
+          <Link>Education</Link>
+          <Link>Experience</Link>
+        </LinkContainer>
       </HeaderContainer>
     </div>
   );
