@@ -1,7 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+
 import Header from "../components/header";
 import Bio from "../components/bio";
+import Main from "../components/main";
+
+import { Data } from "../data";
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -33,16 +37,24 @@ const BioWrapper = styled.div`
   grid-area: side;
 `;
 
+const MainWrapper = styled.div`
+  grid-area: main;
+`;
+
 //todo: style bio and setup container layout
-export const Container = () => {
+export const Container = ({ data }: { data: Data }) => {
+  const { header, bio } = data;
   return (
     <Wrapper>
       <HeaderWrapper>
-        <Header />
+        <Header photoUrl={header.photoUrl} title={header.title} />
       </HeaderWrapper>
       <BioWrapper>
-        <Bio />
+        <Bio intro={bio.intro} blurb={bio.blurb} />
       </BioWrapper>
+      <MainWrapper>
+        <Main />
+      </MainWrapper>
     </Wrapper>
   );
 };

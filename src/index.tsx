@@ -2,4 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Container from "./container/container";
 
-ReactDOM.render(<Container />, document.getElementsByTagName("body")[0]);
+import data from "./data";
+
+ReactDOM.render(
+  <Container data={data} />,
+  document.getElementsByTagName("body")[0]
+);

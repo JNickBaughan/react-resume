@@ -9,13 +9,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const Bio = () => {
+type BioProps = {
+  intro: string;
+  blurb: string;
+};
+
+export const Bio = ({ intro, blurb }: BioProps) => {
   return (
     <div>
-      <h3>
-        Nick here. Front end developer working with Costar Group in Richmond, Va
-      </h3>
-      <span>Well versed in Javascript. Working with React daily.</span>
+      <h3>{intro}</h3>
+      <span>{blurb}</span>
 
       <FontAwesomeIcon icon={faEnvelope} />
       <FontAwesomeIcon icon={faCodeBranch} />

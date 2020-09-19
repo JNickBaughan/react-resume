@@ -19,6 +19,11 @@ import styled from "styled-components";
 //grey
 // #352d31;
 
+type HeaderProps = {
+  title: string;
+  photoUrl: string;
+};
+
 const HeaderContainer = styled.header`
   z-index: 1000;
   background: #352d31;
@@ -42,7 +47,7 @@ const Photo = styled.div`
   display: inline-block;
   width: 160px;
   height: 160px;
-  background: url("/profileImageDeskTop.png");
+  background: url(${(props: HeaderProps) => props.photoUrl});
   border: 2px solid #777;
   float: left;
   position: absolute;
@@ -50,12 +55,12 @@ const Photo = styled.div`
   left: 10px;
 `;
 
-export const Header = () => {
+export const Header = ({ photoUrl, title }: HeaderProps) => {
   return (
     <div>
       <HeaderContainer>
-        <Photo />
-        <Title>[ J. Nick Baughan ]</Title>
+        <Photo photoUrl={photoUrl} />
+        <Title>{title}</Title>
       </HeaderContainer>
     </div>
   );
