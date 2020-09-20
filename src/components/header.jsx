@@ -19,11 +19,6 @@ import styled from "styled-components";
 //grey
 // #352d31;
 
-type HeaderProps = {
-  title: string;
-  photoUrl: string;
-};
-
 const HeaderContainer = styled.header`
   z-index: 1000;
   background: #352d31;
@@ -51,7 +46,7 @@ const Photo = styled.div`
   display: inline-block;
   width: 160px;
   height: 160px;
-  background: url(${(props: HeaderProps) => props.photoUrl});
+  background: url(${(props) => props.photoUrl});
   border: 2px solid #777;
   float: left;
   position: absolute;
@@ -75,7 +70,7 @@ const Link = styled.div`
   font-weight: bold;
 `;
 
-export const Header = ({ photoUrl, title }: HeaderProps) => {
+export const Header = ({ photoUrl, title }) => {
   return (
     <div>
       <HeaderContainer>

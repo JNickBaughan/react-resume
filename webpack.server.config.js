@@ -9,7 +9,7 @@ module.exports = {
     filename: "server.bundle.js",
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
+    extensions: [".js", ".jsx", ".json"],
   },
   module: {
     rules: [

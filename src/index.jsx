@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Container from "./container/container";
 
-import data from "./data";
+import appConfig from "./appConfig";
 
 ReactDOM.render(
-  <Container data={data} />,
+  <Container appConfig={appConfig} />,
   document.getElementsByTagName("body")[0]
 );

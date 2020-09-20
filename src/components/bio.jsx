@@ -9,11 +9,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-type BioProps = {
-  intro: string;
-  blurb: string;
-};
-
 const StyledBio = styled.div`
   margin: 135px 25px;
   padding: 5px;
@@ -21,7 +16,7 @@ const StyledBio = styled.div`
   border-top: solid;
 `;
 
-export const Bio = ({ intro, blurb }: BioProps) => {
+export const Bio = ({ intro, blurb }) => {
   return (
     <StyledBio>
       <h4>{intro}</h4>

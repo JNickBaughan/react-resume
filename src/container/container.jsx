@@ -4,11 +4,8 @@ import styled from "styled-components";
 import Header from "../components/header";
 import Bio from "../components/bio";
 import Main from "../components/main";
-import Section from "../components/sections/section";
-import SkillsSection from "../components/sections/skills";
-import PortfolioSection from "../components/sections/portfolio";
 
-import { Data } from "../data";
+import renderSections from "../helpers";
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -44,8 +41,9 @@ const MainWrapper = styled.div`
   grid-area: main;
 `;
 
-export const Container = ({ data }: { data: Data }) => {
-  const { header, bio } = data;
+export const Container = ({ appConfig }) => {
+  const { header, bio, sections } = appConfig;
+
   const scrollRef = useRef(null);
   const refOne = useRef(null);
   const refTwo = useRef(null);
@@ -68,12 +66,13 @@ export const Container = ({ data }: { data: Data }) => {
       </BioWrapper>
       <MainWrapper>
         <Main ref={scrollRef}>
-          <SkillsSection ref={refOne} />
+          {renderSections(sections)}
+          {/* <SkillsSection ref={refOne} />
           <PortfolioSection ref={refTwo} />
           <Section ref={refThree} />
           <Section ref={refFour} />
           <Section ref={refFive} />
-          <Section ref={refSix} />
+          <Section ref={refSix} /> */}
         </Main>
       </MainWrapper>
     </Wrapper>
