@@ -8,8 +8,8 @@ const StyledSection = styled.div`
   padding: 40px;
 `;
 
-export const Section = React.forwardRef((props, ref) => {
-  return <StyledSection ref={ref}>{props.children}</StyledSection>;
-});
+export const Section = (props) => {
+  return <StyledSection>{props.children}</StyledSection>;
+};
 
 export default Section;

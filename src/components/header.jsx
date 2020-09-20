@@ -70,19 +70,22 @@ const Link = styled.div`
   font-weight: bold;
 `;
 
-export const Header = ({ photoUrl, title }) => {
+export const Header = ({ photoUrl, title, sections }) => {
   return (
     <div>
       <HeaderContainer>
         <Photo photoUrl={photoUrl} />
         <Title>{title}</Title>
         <LinkContainer>
-          <Link>
-            <a>Skill Set</a>
-          </Link>
-          <Link>Portfolio</Link>
-          <Link>Education</Link>
-          <Link>Experience</Link>
+          {Object.keys(sections).map((section) => {
+            return (
+              <Link>
+                <a onClick={sections[section].scrollToRef}>
+                  {sections[section].linkText}
+                </a>
+              </Link>
+            );
+          })}
         </LinkContainer>
       </HeaderContainer>
     </div>
