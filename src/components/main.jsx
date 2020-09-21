@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 
 const Scroll = styled.div`
@@ -35,6 +35,10 @@ const BottomFade = styled.div`
 `;
 
 export const Main = React.forwardRef((props, ref) => {
+  useEffect(() => {
+    ref.current.addEventListener("scroll", props.getScrollPosition);
+  });
+
   return (
     <Scroll ref={ref}>
       <TopFade />

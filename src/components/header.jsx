@@ -64,13 +64,15 @@ const LinkContainer = styled.div`
 const Link = styled.div`
   font-family: proxima-nova, Helvetica, Arial, sans-serif;
   margin-top: 10px;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   color: #fff;
   font-size: large;
   font-weight: bold;
+  cursor: pointer;
+  border-bottom: ${(props) => (props.isActive ? "3px solid #D35B3F" : "")};
 `;
 
-export const Header = ({ photoUrl, title, sections }) => {
+export const Header = ({ photoUrl, title, sections, activeSection }) => {
   return (
     <div>
       <HeaderContainer>
@@ -79,7 +81,7 @@ export const Header = ({ photoUrl, title, sections }) => {
         <LinkContainer>
           {Object.keys(sections).map((section) => {
             return (
-              <Link>
+              <Link isActive={sections[section].linkText === activeSection}>
                 <a onClick={sections[section].scrollToRef}>
                   {sections[section].linkText}
                 </a>

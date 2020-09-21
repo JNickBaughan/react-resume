@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
 import Header from "../components/header";
@@ -46,21 +46,41 @@ export const Container = ({ appConfig }) => {
 
   const scrollRef = useRef(null);
   const scrollToRef = (ref) => {
-    //scrollRef.current.scrollTo(0, ref.current.offsetTop);
     scrollRef.current.scrollTo({
       top: ref.current.offsetTop,
       behavior: "smooth",
     });
   };
 
+  const getScrollPosition = () => {
+    const position = scrollRef.current.getBoundingClientRect();
+    Object.keys(sections).forEach((section) => {
+      console.dir(sections[section].ref.current.getBoundingClientRect());
+    });
+  };
+
+  const getSectionIndex = (linkText) => {
+    return Object.keys(sections).findIndex((section) => {
+      return sections[section].linkText === linkText;
+    });
+  };
+
   Object.keys(sections).forEach((section) => {
+    const index = getSectionIndex(sections[section].linkText);
     sections[section][`ref`] = useRef(null);
     sections[section][`scrollToRef`] = () => {
+      updateActiveSection(index);
       scrollToRef(sections[section][`ref`]);
     };
   });
 
-  console.dir(sections);
+  const [activeSections] = useState(
+    Object.keys(sections).map((section) => {
+      return sections[section].linkText;
+    })
+  );
+
+  const [activeSection, updateActiveSection] = useState(0);
 
   return (
     <Wrapper>
@@ -69,13 +89,14 @@ export const Container = ({ appConfig }) => {
           photoUrl={header.photoUrl}
           title={header.title}
           sections={sections}
+          activeSection={activeSections[activeSection]}
         />
       </HeaderWrapper>
       <BioWrapper>
         <Bio intro={bio.intro} blurb={bio.blurb} />
       </BioWrapper>
       <MainWrapper>
-        <Main ref={scrollRef}>
+        <Main ref={scrollRef} getScrollPosition={getScrollPosition}>
           {renderSections(sections)}
           At vero eos et accusamus et iusto odio dignissimos ducimus qui
           blanditiis praesentium voluptatum deleniti atque corrupti quos dolores
