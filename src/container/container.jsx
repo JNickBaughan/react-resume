@@ -53,9 +53,15 @@ export const Container = ({ appConfig }) => {
   };
 
   const getScrollPosition = () => {
-    const position = scrollRef.current.getBoundingClientRect();
+    const scrollTop = scrollRef.current.scrollTop;
+    const scrollBottom = scrollRef.current.offsetHeight + scrollTop;
     Object.keys(sections).forEach((section) => {
-      console.dir(sections[section].ref.current.getBoundingClientRect());
+      const top = sections[section].ref.current.offsetTop + 30;
+      const bottom = top + sections[section].ref.current.offsetHeight + 30;
+      if (top >= scrollTop && bottom <= scrollBottom) {
+        const index = getSectionIndex(sections[section].linkText);
+        updateActiveSection(index);
+      }
     });
   };
 

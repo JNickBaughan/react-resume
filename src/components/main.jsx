@@ -36,7 +36,19 @@ const BottomFade = styled.div`
 
 export const Main = React.forwardRef((props, ref) => {
   useEffect(() => {
-    ref.current.addEventListener("scroll", props.getScrollPosition);
+    let timer = null;
+    ref.current.addEventListener(
+      "scroll",
+      function () {
+        if (timer !== null) {
+          clearTimeout(timer);
+        }
+        timer = setTimeout(function () {
+          props.getScrollPosition();
+        }, 150);
+      },
+      false
+    );
   });
 
   return (
