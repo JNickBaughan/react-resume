@@ -81,10 +81,8 @@ export const Header = ({ photoUrl, title, sections, activeSection }) => {
         <LinkContainer>
           {Object.keys(sections).map((section) => {
             return (
-              <Link isActive={sections[section].linkText === activeSection}>
-                <a onClick={sections[section].scrollToRef}>
+              <Link isActive={sections[section].linkText === activeSection} onClick={sections[section].scrollToRef}>
                   {sections[section].linkText}
-                </a>
               </Link>
             );
           })}

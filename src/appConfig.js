@@ -33,7 +33,7 @@ const appConfig = {
     },
     education: {
       linkText: "Education",
-      sectionTitle: "Experience",
+      sectionTitle: "Education",
     },
   },
 };

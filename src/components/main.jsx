@@ -45,7 +45,7 @@ export const Main = React.forwardRef((props, ref) => {
         }
         timer = setTimeout(function () {
           props.getScrollPosition();
-        }, 150);
+        }, 300);
       },
       false
     );

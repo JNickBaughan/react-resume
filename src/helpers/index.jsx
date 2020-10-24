@@ -2,6 +2,8 @@ import React from "react";
 
 import SkillsSection from "../components/sections/skills";
 import PortfolioSection from "../components/sections/portfolio";
+import EducationSection from "../components/sections/education";
+import ExperienceSection from "../components/sections/experience";
 
 const renderSkills = (skills, key) => {
   return (
@@ -25,7 +27,7 @@ const renderPortfolio = (portfolio, key) => {
 
 const renderExperience = (portfolio, key) => {
   return (
-    <PortfolioSection
+    <ExperienceSection
       key={key}
       ref={portfolio.ref}
       title={portfolio.sectionTitle}
@@ -33,12 +35,12 @@ const renderExperience = (portfolio, key) => {
   );
 };
 
-const renderEducation = (portfolio, key) => {
+const renderEducation = (education, key) => {
   return (
-    <PortfolioSection
+    <EducationSection
       key={key}
-      ref={portfolio.ref}
-      title={portfolio.sectionTitle}
+      ref={education.ref}
+      title={education.sectionTitle}
     />
   );
 };
